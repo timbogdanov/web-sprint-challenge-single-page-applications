@@ -1,20 +1,33 @@
 import React from 'react'
 
+const pizzaDiv = {
+  backgroundColor: '#EEEEEE',
+  padding: '20px 0',
+  marginTop: '20px'
+}
+
 const Pizza = (props) => {
   const { pizza } = props
 
-  const topps = Object.entries(pizza.toppings)
-
   return (
-    <div>
-      <h2>{pizza.name}</h2>
-      <p>{pizza.size}</p>
-      <p>{pizza.instructions}</p>
+    <div style={pizzaDiv}>
+      <h3>Name on Order: {pizza.name}</h3>
+      <p>Pizza Size: {pizza.size}</p>
+      <p>Additional Instructions: {pizza.instructions}</p>
 
 
       {
-        topps.forEach(([key, value]) => <li>{key}: ${value}</li>)
+        !!pizza.toppings && !!pizza.toppings.length &&
+        <div>
+          Toppings:
+          <ul>
+            {pizza.toppings.map((like, idx) => {
+              return <li key={idx}>{like}</li>
+            })}
+          </ul>
+        </div>
       }
+
     </div>
 
   )
