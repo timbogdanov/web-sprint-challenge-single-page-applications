@@ -3,6 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import './App.css'
 import Form from './Form';
 import Pizza from './Pizza'
+import Home from './Home'
 import formValidation  from './formValidation'
 import * as Yup from 'yup'
 import { v4 as uuid } from 'uuid';
@@ -122,7 +123,7 @@ const App = () => {
         </Route>
 
         <Route path='/'>
-
+          <Home />
         </Route>
       </Switch>
     </div>
